@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const {createUser} = require('../cart/controllers/cartController');
+const {createUserCart} = require('../cart/controllers/cartControllers');
 const {register} = require('./controllers/userController');
 const User = require('../users/models/User');
 require('../../lib/passport');
@@ -36,3 +36,7 @@ router.post(
 );
 
 // profile routes
+
+
+
+module.exports = router
