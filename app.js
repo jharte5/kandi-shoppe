@@ -54,10 +54,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+app.use(cartTotal)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/cart', cartRouter);
 
 
 // catch 404 and forward to error handler
