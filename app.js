@@ -13,7 +13,9 @@ require('./lib/passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users/userRoutes');
+const cartRouter = require('./routes/cart/cartRoutes');
 
+const cartTotal = require('./routes/cart/middleware/cartTotal')
 const app = express();
 require('dotenv').config();
 
@@ -37,6 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(flash());
 
 app.use(
   session({
@@ -53,6 +56,15 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  res.locals.errors = req.flash('error');
+  res.locals.message = req.flash('message');
+  res.locals.success = req.flash('success');
+
+  next();
+});
 
 app.use(cartTotal)
 app.use('/', indexRouter);
