@@ -9,17 +9,19 @@ module.exports = {
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
     }
-    const { name, email, password } = req.body;
+    console.log(req.body)
+    const { name, email, password, address } = req.body;
     User.findOne({ email }).then(user => {
       if (user) {
         // return req.flash('errors', 'User Already Exists');
         return res.send('User Exists');
       } else {
         const newUser = new User();
-        newUser.profile.name = name;
-        newUser.profile.picture = faker.image.avatar();
+        newUser.name = name;
+        // newUser.profile.picture = faker.image.avatar();
         newUser.email = email;
         newUser.password = password;
+        newUser.address = address;
 
         newUser
           .save()
