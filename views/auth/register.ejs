@@ -174,9 +174,14 @@ a{color:inherit;text-decoration:none}
     <%- include ('../partials/nav') %> 
     <div class="login-wrap">
             <div class="login-html">
-                <input id="tab-2" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Register</label>
-                <input id="tab-1" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Already A User</label>
-                <div class="login-form">
+                <% if(login) { %> 
+                <input id="tab-2" type="radio" name="tab" class="sign-in"><label for="tab-2" class="tab">Register</label>
+                <input id="tab-1" type="radio" name="tab" class="for-pwd" checked><label for="tab-1" class="tab">Login</label>
+                <% } else { %> 
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Register</label>
+                    <input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Login</label> 
+                <% } %> 
+                    <div class="login-form">
                     <form role="form" method="POST" action="/users/register">
                     <div  class="sign-in-htm">
                         <div class="group">
@@ -202,14 +207,20 @@ a{color:inherit;text-decoration:none}
                     </div>
                     </form>
                     <div class="for-pwd-htm">
+                        <form action="/users/login" method="GET" role="form">
                         <div class="group">
-                            <label for="user" class="label">Username or Email</label>
-                            <input id="user" type="text" class="input">
+                            <label for="email" class="label">Email</label>
+                            <input name="email" id="user" type="text" class="input">
                         </div>
                         <div class="group">
-                            <input type="submit" class="button" value="Reset Password">
+                            <label for="pass" class="label">Password</label>
+                            <input name="password" id="pass" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Login">
                         </div>
                         <div class="hr"></div>
+                    </form>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ router.get('/register', (req, res) => {
 router.post('/register', userValidation, register, createUserCart);
 
 router.get('/login' , (req, res) => {
-    return res.render('auth/login', {errors: req.flash('errors'),  login:  true })
+    return res.render('auth/register', {errors: req.flash('errors'),  login:  true })
 });
 
 // login routes
