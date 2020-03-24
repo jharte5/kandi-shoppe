@@ -174,27 +174,33 @@ a{color:inherit;text-decoration:none}
     <%- include ('../partials/nav') %> 
     <div class="login-wrap">
             <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-                <input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Forgot Password</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Register</label>
+                <input id="tab-1" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Already A User</label>
                 <div class="login-form">
-                    <div class="sign-in-htm">
+                    <form role="form" method="POST" action="/users/register">
+                    <div  class="sign-in-htm">
                         <div class="group">
-                            <label for="user" class="label">Username or Email</label>
-                            <input id="user" type="text" class="input">
+                            <label for="name" class="label">Name</label>
+                            <input name="name" id="user" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="email" class="label">Email</label>
+                            <input  name="email" id="email" type="text" class="input">
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" class="input" data-type="password">
+                            <input name="password" id="pass" type="password" class="input" data-type="password">
                         </div>
                         <div class="group">
                             <label for="address" class="label">Address</label>
-                            <input id="address" type="address" class="input" data-type="address">
+                            <input name="address" id="address" type="address" class="input" data-type="address">
                         </div>
                         <div class="group">
-                            <input type="submit" class="button" value="Sign In">
+                            <input type="submit" class="button" value="Register">
                         </div>
                         <div class="hr"></div>
                     </div>
+                    </form>
                     <div class="for-pwd-htm">
                         <div class="group">
                             <label for="user" class="label">Username or Email</label>

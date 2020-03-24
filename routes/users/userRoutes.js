@@ -16,13 +16,13 @@ router.get('/', (req, res, next) => {
 
 // register routes
 router.get('/register', (req, res) => {
-    res.render('auth/register', {errors: req.flash('errors') })
+    res.render('auth/register', {errors: req.flash('errors'), login: false })
 });
 
 router.post('/register', userValidation, register, createUserCart);
 
 router.get('/login' , (req, res) => {
-    return res.render('auth/login', {errors: req.flash('errors') })
+    return res.render('auth/login', {errors: req.flash('errors'),  login:  true })
 });
 
 // login routes
