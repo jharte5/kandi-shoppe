@@ -8,7 +8,7 @@ module.exports = {
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
     }
-    console.log(req.body)
+    console.log('controller...',req.body)
     const { name, email, password, address } = req.body;
     User.findOne({ email }).then(user => {
       if (user) {
@@ -31,8 +31,8 @@ module.exports = {
                   .status(400)
                   .json({ confirmation: false, message: err });
               } else {
-                // res.redirect('/');
-                next();
+                res.redirect('/sweets');
+                
               }
             });
           })

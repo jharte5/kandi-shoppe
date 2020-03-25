@@ -19,18 +19,25 @@ router.get('/register', (req, res) => {
     res.render('auth/register', {errors: req.flash('errors'), login: false })
 });
 
-router.post('/register', userValidation, register, createUserCart);
+router.post('/register', userValidation, register);
 
 router.get('/login' , (req, res) => {
     return res.render('auth/register', {errors: req.flash('errors'),  login:  true })
 });
 
+router.get('/logout', (req, res) => {
+ req.logOut();
+ session.destroy()
+ res.redirect('/sweets')
+}
+)
+
 // login routes
 router.post(
-    'login',
+    '/login',
     passport.authenticate('local-login', {
-        successRedirect: '/',
-        failureRedirect: '/api/users/login',
+        successRedirect: '/sweets',
+        failureRedirect: '/users/login',
         failureFlash: true
     })
 );
