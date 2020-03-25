@@ -4,7 +4,8 @@ const Sweet = require('./models/Sweets');
 
 router.get('/', (req, res, next) => {
     // return res.render('auth/home')
-    Sweet.find({}).then()
+    Sweet.find({})
+    .then()
 
 });
 
