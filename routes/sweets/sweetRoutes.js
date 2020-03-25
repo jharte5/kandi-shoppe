@@ -5,7 +5,11 @@ const Sweet = require('./models/Sweets');
 router.get('/', (req, res, next) => {
     // return res.render('auth/home')
     Sweet.find({})
-    .then()
+    .then(candy => {
+        if(candy) {
+            return res.send()
+        }
+    })
 
 });
 
@@ -15,14 +19,14 @@ router.post('/create-candy', (req, res, next) => {
         if(candy) {
             return res.send('Candy Exists')
         }else {
-            const  newCandy = new Sweet();
+            const newCandy = new Sweet();
             newCandy.name = req.body.name;
             newCandy.type = req.body.type;
 
             newCandy
             .save()
             .then(sweet => {
-               res.send(sweet)
+                res.send(sweet)
             })
             .catch(err => {
                 console.log( err)
@@ -32,6 +36,6 @@ router.post('/create-candy', (req, res, next) => {
     .catch( err => {
         console.log (err)
     })
-}
-)
+});
+
 module.exports = router
