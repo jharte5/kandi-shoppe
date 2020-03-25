@@ -14,6 +14,7 @@ require('./lib/passport');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users/userRoutes');
 const cartRouter = require('./routes/cart/cartRoutes');
+const sweetRouter = require('./routes/sweets/sweetRoutes');
 
 const cartTotal = require('./routes/cart/middleware/cartTotal')
 const app = express();
@@ -70,6 +71,7 @@ app.use(cartTotal)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/cart', cartRouter);
+app.use('/sweets', sweetRouter);
 
 
 // catch 404 and forward to error handler
