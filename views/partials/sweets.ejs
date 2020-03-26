@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sweets</title>
 </head>
 <body>
+    <h1>Welcome to the sweets page</h1>
 
-    <%= user.email %> 
-    <% console.log(user) %> 
-   <%- include ('../partials/sweets')  %> 
+    <% for( let i =0; i < candy.length; i++ ) { %>
+        <a href="/sweets/add-to-fave/<%= candy[i]._id %>"><%= candy[i].name %> </a> 
+        
+        <% } %>
+
+
+
 </body>
 </html>

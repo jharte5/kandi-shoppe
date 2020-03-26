@@ -26,11 +26,10 @@ router.get('/login' , (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
- req.logOut();
- session.destroy()
- res.redirect('/sweets')
-}
-)
+    req.logOut();
+    req.session.destroy()
+    res.redirect('/sweets')
+});
 
 // login routes
 router.post(
@@ -42,43 +41,43 @@ router.post(
     })
 );
 
-// profile routes
-router.get('/profile', (req, res, next) => {
-    if (req.isAuthenticated()) {
-        return res.render('auth/profile');
-    } else {
-        return res.send('Unauthorized');
-    }
-});
-router.put('/update-profile', (req, res, next) => {
-    userController
-        .updateProfile(req.body, req.user._id)
-        .then(user => {
-        return res.redirect('/api/users/profile');
-        })
-        .catch(err => {
-        console.log(err);
-        return res.redirect('/api/users/update-profile');
-        });
-});
-router.get('/update-profile', (req, res) => {
-    if (req.isAuthenticated()) {
-        return res.render('auth/update-profile');
-    }
-    return res.redirect('/');
-});
+// // profile routes
+// router.get('/profile', (req, res, next) => {
+//     if (req.isAuthenticated()) {
+//         return res.render('auth/profile');
+//     } else {
+//         return res.send('Unauthorized');
+//     }
+// });
+// router.put('/update-profile', (req, res, next) => {
+//     userController
+//         .updateProfile(req.body, req.user._id)
+//         .then(user => {
+//         return res.redirect('/api/users/profile');
+//         })
+//         .catch(err => {
+//         console.log(err);
+//         return res.redirect('/api/users/update-profile');
+//         });
+// });
+// router.get('/update-profile', (req, res) => {
+//     if (req.isAuthenticated()) {
+//         return res.render('auth/update-profile');
+//     }
+//     return res.redirect('/');
+// });
 
-//update password
-router.put('/update-password', (req, res) => {
-    userController
-        .updatePassword(req.body, req.user._id)
-        .then(user => {
-        return res.redirect('/api/users/profile');
-        })
-        .catch(err => {
-        console.log('Error in route');
-        return res.redirect('/api/users/update-profile');
-        });
-});
+// //update password
+// router.put('/update-password', (req, res) => {
+//     userController
+//         .updatePassword(req.body, req.user._id)
+//         .then(user => {
+//         return res.redirect('/api/users/profile');
+//         })
+//         .catch(err => {
+//         console.log('Error in route');
+//         return res.redirect('/api/users/update-profile');
+//         });
+// });
 
 module.exports = router

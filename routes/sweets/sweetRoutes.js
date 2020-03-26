@@ -15,9 +15,8 @@ router.get('/', (req, res, next) => {
             }
         })
     }else{
-        res.send('No User')
+        return res.render('main/home-welcome', {candy: candy})
     }
-  
 
 });
 
@@ -45,5 +44,17 @@ router.post('/create-candy', (req, res, next) => {
         console.log (err)
     })
 });
+
+router.get('/add-to-fave/:id', (req, res) => {
+    let user = req.user
+    user.favorites.push({
+        candy: req.params.id
+    })
+    user.save()
+})
+
+router.get('/show-fave', (req,res)=>{
+
+})
 
 module.exports = router
