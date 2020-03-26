@@ -10,7 +10,7 @@
     <h1>Welcome to the sweets page</h1>
 
     <% for( let i =0; i < candy.length; i++ ) { %>
-        <a href="/sweets/add-to-fave/<%= candy[i]._id %>"><%= candy[i].name %> </a> 
+        <a href="/sweets/add-to-fave/<%= candy[i].name %>/<%= candy[i]._id %>"><%= candy[i].name %> </a> 
         
         <% } %>
 

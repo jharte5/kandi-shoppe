@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Sweet = require('./models/Sweets');
+const User = require('../users/models/User')
 
 // const getAllCandy = require('./middleware/getAllCandy')
 
@@ -45,16 +46,31 @@ router.post('/create-candy', (req, res, next) => {
     })
 });
 
-router.get('/add-to-fave/:id', (req, res) => {
+router.get('/add-to-fave/:name/:id', (req, res) => {
     let user = req.user
     user.favorites.push({
-        candy: req.params.id
+        candy: req.params.name,
+        candy_id: req.params.id
     })
     user.save()
+    .then(favorites => {
+        res.redirect('/sweets')
+    })
+    .catch(err => {
+        console.log(err)
+    })
 })
 
 router.get('/show-fave', (req,res)=>{
-
+    let user = req.user
+    let candy = req.user.favorites
+    // User.findById({ user })
+    // .populate('candy')
+    // .exec()
+    // .then(sweet => {
+        console.log(candy)
+        res.render('partials/show-fave', { candy })
+    // })
 })
 
 module.exports = router

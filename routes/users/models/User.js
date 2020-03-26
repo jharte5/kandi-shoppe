@@ -9,7 +9,8 @@ const UserSchema = new mongoose.Schema({
     //  wishlist
     favorites: [
         { 
-            candy: {type: mongoose.Schema.Types.ObjectId, ref:'Sweet'}
+            candy: {type: String, unique: true},
+            candy_id: {type: mongoose.Schema.Types.ObjectId, ref:'Sweet'}
         } 
     ]
 });
