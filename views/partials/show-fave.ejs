@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <p>showing faves here <%= candy[0].candy %> </p>
+    <p> Here's your faves... for future orders</p>
+    <% for( let i = 0; i < candy.length; i++ ) { %>
+    <%= candy[0].candy %>
+    <% } %>
 </body>
 </html>
