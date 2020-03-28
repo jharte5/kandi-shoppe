@@ -9,11 +9,11 @@
 <body>
     <p> Here's your faves... for future orders</p>
     <% for( let i = 0; i < candy.length; i++ ) { %>
-    <%= candy[0].candy %>
+    <%= candy[i].candy %>
     <% } %>
 <br />
 <a href="/sweets">Want To Add More?</a>
 <br />
-    <a href="">Process Faves</a>
+    <a href="main/thank-you">Process Faves</a>
 </body>
 </html>
