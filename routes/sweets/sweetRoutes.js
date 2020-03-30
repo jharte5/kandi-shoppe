@@ -73,4 +73,8 @@ router.get('/show-fave', (req,res)=>{
     // })
 })
 
+router.get('/process-fave', (req, res, next) => {
+    res.render('main/thank-you')
+});
+
 module.exports = router
