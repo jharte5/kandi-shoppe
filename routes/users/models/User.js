@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
     //  wishlist
     favorites: [
         { 
-            candy: {type: String, unique: true},
+            candy: String
 
         } 
     ]
