@@ -48,7 +48,9 @@ router.post('/create-candy', (req, res, next) => {
 
 router.get('/add-to-fave/:name', (req, res) => {
     let user = req.user
-    user.favorites.push(req.params.name)
+    user.favorites.push({
+        candy: req.params.name
+    })
     user.save()
     .then(favorites => {
         res.redirect('/sweets')
@@ -63,12 +65,12 @@ router.get('/delete', (req, res) => {
     return res.render('partials/sweets-remove', {candy})
 })
 
-router.get('/delete-fave/:name', (req, res) => {
+router.get('/delete-fave/:id', (req, res) => {
     let user = req.user._id
 
     User.findOne({_id: user})
     .then(user =>{
-        user.favorites.pull(req.params.name)
+        user.favorites.pull({_id: req.params.id})
 
         user.save()
         .then(user=>{
