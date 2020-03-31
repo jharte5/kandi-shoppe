@@ -7,11 +7,7 @@ const UserSchema = new mongoose.Schema({
     password: { type: String, required: true },
     address: { type: String, default: '(Please Update Address)' },
     //  wishlist
-    favorites: [
-        { 
-            candy: {type: String, unique: true}
-        } 
-    ]
+    favorites: [ { types: String, unique: true}]
 });
 
 // This will hash the password before saving to the database
