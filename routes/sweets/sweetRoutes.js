@@ -46,11 +46,10 @@ router.post('/create-candy', (req, res, next) => {
     })
 });
 
-router.get('/add-to-fave/:name/:id', (req, res) => {
+router.get('/add-to-fave/:name', (req, res) => {
     let user = req.user
     user.favorites.push({
-        candy: req.params.name,
-        candy_id: req.params.id
+        candy: req.params.name
     })
     user.save()
     .then(favorites => {
@@ -66,13 +65,19 @@ router.get('/delete', (req, res) => {
     return res.render('partials/sweets-remove', {candy})
 })
 
-router.delete('/delete-fave/:name/:id', (req, res) => {
+router.get('/delete-fave/:id', (req, res) => {
     let user = req.user._id
 
-    User.findById({user})
+    User.findOne({_id: user})
     .then(user =>{
-        console.log(user)
+        user.favorites.pull({_id: req.params.id})
+
+        user.save()
+        .then(user=>{
+            res.redirect('/sweets/delete')
+        })
     })
+    
     // user.favorites.findOneAndDelete({
     //     candy: req.params.name,
     //     candy_id: req.params.id
