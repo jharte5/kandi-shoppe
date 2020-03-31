@@ -10,13 +10,14 @@
 </head>
 <body>
         <%- include ('../partials/nav') %>
-    <p> Here's your faves... for future orders</p>
+    <h2> Here's your faves... for future orders</h2>
     <% for( let i = 0; i < candy.length; i++ ) { %>
     <%= candy[i].candy %>
     <% } %>
 <br />
 <a href="/sweets">Want To Add More?</a>
 <br />
+<a href="/sweets/delete">made a mistake?</a>
     <a href="/sweets/process-fave">Process Faves</a>
 </body>
 </html>
