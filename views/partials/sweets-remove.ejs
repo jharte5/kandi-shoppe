@@ -13,7 +13,6 @@
     <h1>Welcome to the sweets page</h1>
         <p>Please select a candy to add to your favorites for future order.</p>
     <% for( let i =0; i < candy.length; i++ ) { %>
-        <% console.log(candy) %> 
         
         <a href="/sweets/delete-fave/<%= candy[i]._id%>"><%= candy[i].candy %> </a> 
         <% } %>

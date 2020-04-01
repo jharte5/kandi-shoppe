@@ -1,19 +1,25 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sweets</title>
+<style> -->
+    <!-- body {
+        background: teal;
+    }
 
+</style> -->
     
-</head>
-<body>
+<!-- </head>
+<body> -->
         <%- include ('./nav') %>
+        <div style="background:teal;">
     <h1>Welcome to the sweets page</h1>
         <p>Please select a candy to add to your favorites for future order.</p>
     <% for( let i =0; i < candy.length; i++ ) { %>
-        <a href="/sweets/add-to-fave/<%= candy[i].name %>"><%= candy[i].name %> </a> 
+        <a href="/sweets/add-to-fave/<%= candy[i].name %>"><%= candy[i].name %> </a> <br />
         
         <% } %>
 <br />
@@ -21,6 +27,6 @@
 <br />
 <a href="/sweets/show-fave">Click here to see faves</a>
 
-
-</body>
-</html>
+</div>
+<!-- </body>
+</html> -->
