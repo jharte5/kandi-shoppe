@@ -70,8 +70,8 @@ app.use((req, res, next) => {
 app.use(cartTotal)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/cart', cartRouter);
 app.use('/sweets', sweetRouter);
+// app.use('/cart', cartRouter);
 
 
 // catch 404 and forward to error handler
