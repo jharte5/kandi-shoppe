@@ -21,6 +21,7 @@ If you would like to get a copy of this magnificent masterpiece to use as a canv
 As of now, the store only contains two working models.
 * sweets -> for the candy
 * users -> for the users
+
 From there we only have two parent routes.
 ```
 app.use('/users', usersRouter);
