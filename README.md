@@ -8,6 +8,7 @@ For starters, the user wont be able to see what candy is available until they re
 
 ## Clone instructions
 If you would like to get a copy of this magnificent masterpiece to use as a canvas to color it and make it your own, you'd have to first clone this repo. After that please don't forget to include the following node modules or you'll be forever lost in and endless void.
+```
 - npm i express-session
 - npm i faker
 - npm i passport
@@ -15,6 +16,8 @@ If you would like to get a copy of this magnificent masterpiece to use as a canv
 - npm i express-validator
 - npm i bcryptjs
 - npm i dotenv
+```
+
  * Dont forget your .env file as well as your .gitignore to save you the trouble
 
 ## Routes
